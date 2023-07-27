@@ -1,0 +1,28 @@
+PERN STACK
+* REACT
+* POSTGRES
+* Express
+* Node
+
+
+* STEPS 
+
+1 -- CLIENT
++ VITE: npm create vite@latest
++ React Router DOM : npm install react-router-dom
++ Axios : npm install axios
++ TAILWIND : npm install -D tailwindcss postcss autoprefixer
+			npx tailwindcss init -p
+
+2-- SERVER
++ Node
++ Express
+
+
+3 -- DATABASE
+
+API: https://www.themoviedb.org/login
+
+
+
+https://movie-web.app/search/movie/

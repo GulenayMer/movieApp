@@ -16,13 +16,14 @@ const NewMovie = () => {
 	const [year, setYear] = useState('');
 	const [rating, setRating] = useState('');
 	const [poster, setPoster] = useState('');
+	const [description, setDescription] = useState('');
 	const navigate = useNavigate();
 
 const handleSubmit = (e) =>{
 	e.preventDefault();
 	
 	axios
-	.post(`${import.meta.env.VITE_SERVER_BASE_URL}/api/movies`, {title, director, year, rating, poster})
+	.post(`${import.meta.env.VITE_SERVER_BASE_URL}/api/moviesdb`, {title, director, year, rating, poster, description})
 	.then(res => {
 		console.log(res.data);
 		navigate('/');
@@ -83,6 +84,16 @@ return (
 				placeholder="imdb rating"
 				value={rating}
 				onChange={e => setRating(e.target.value)}
+				className="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+			focus:border-blue-500 block w-80 p-2.5"
+			></input>
+				<input 
+				type="text" 
+				name="description" 
+				placeholder="description"
+				value={description}
+				required
+				onChange={e => setDescription(e.target.value)}
 				className="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
 			focus:border-blue-500 block w-80 p-2.5"
 			></input>

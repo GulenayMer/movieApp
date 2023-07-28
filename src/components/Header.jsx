@@ -9,7 +9,7 @@ return (
 				{[
 					['Home', '/'],
 					['Movies', '/movies'],
-					['Add Movie', '/movies/new'],
+					['Add Movie', 'movies/new'],
 					['Contact', '/contact']
 				].map(([title, url]) => (
 					<li key={url} className="font-medium p-3 text-slate-300 rounded-lg hover:bg-slate-300 hover:text-slate-900">

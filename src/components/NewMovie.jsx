@@ -9,6 +9,14 @@ import { useNavigate } from 'react-router-dom'
 	3) if the request was successful, navigate back to the movie page
 
 */
+
+const inputClass = `
+mb-6 bg-gray-100 border border-gray-300 
+text-gray-900 text-sm rounded-lg 
+focus:ring-blue-500
+focus:border-blue-500 block w-80 p-2.5
+`
+
 const NewMovie = () => {
 
 	const [title, setTitle] = useState('');
@@ -21,15 +29,17 @@ const NewMovie = () => {
 
 const handleSubmit = (e) =>{
 	e.preventDefault();
-	
+	const imgUrl = poster ? `https://image.tmdb.org/t/p/original/${poster}` : "";
+//1E5baAaEse26fej7uHcjOgEE2t2.jpg
 	axios
-	.post(`${import.meta.env.VITE_SERVER_BASE_URL}/api/moviesdb`, {title, director, year, rating, poster, description})
+	.post(`${import.meta.env.VITE_SERVER_BASE_URL}/api/moviesdb`, {title, director, year, rating, poster: imgUrl, description})
 	.then(res => {
 		console.log(res.data);
-		navigate('/');
+		navigate('/movies');
 	})
 	.catch(e => console.log(e));
 }
+
 
 
 return (
@@ -43,8 +53,7 @@ return (
 				value={poster}
 				placeholder="image link"
 				onChange={e => setPoster(e.target.value)}
-				className="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
-			focus:border-blue-500 block w-80 p-2.5"
+				className={inputClass}
 			></input>
 		{/* 	<label htmlFor="title">Title</label> */}
 			<input 
@@ -54,8 +63,7 @@ return (
 				value={title}
 				required
 				onChange={e => setTitle(e.target.value)}
-				className="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
-			focus:border-blue-500 block w-80 p-2.5"
+				className={inputClass}
 			></input>
 {/* 			<label htmlFor="director">Director</label>
  */}			<input 
@@ -64,8 +72,7 @@ return (
 				placeholder="director"
 				value={director}
 				onChange={e => setDirector(e.target.value)}
-				className="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
-			focus:border-blue-500 block w-80 p-2.5"
+				className={inputClass}
 			></input>
 			{/* <label htmlFor="year">Year</label> */}
 			<input 
@@ -74,8 +81,7 @@ return (
 				placeholder="year"
 				value={year}
 				onChange={e => setYear(e.target.value)}
-				className="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
-			focus:border-blue-500 block w-80 p-2.5"
+				className={inputClass}
 			></input>
 			{/* <label htmlFor="rating">Rating</label> */}
 			<input 
@@ -84,8 +90,7 @@ return (
 				placeholder="imdb rating"
 				value={rating}
 				onChange={e => setRating(e.target.value)}
-				className="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
-			focus:border-blue-500 block w-80 p-2.5"
+				className={inputClass}
 			></input>
 				<input 
 				type="text" 
@@ -94,8 +99,7 @@ return (
 				value={description}
 				required
 				onChange={e => setDescription(e.target.value)}
-				className="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
-			focus:border-blue-500 block w-80 p-2.5"
+				className={inputClass}
 			></input>
 			<button type="submit" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 
 			focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 w-80">

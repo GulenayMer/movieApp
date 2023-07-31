@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 const btnUpdate = `
 text-white bg-green-700
@@ -21,10 +21,9 @@ const inputClass = `
 mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
 focus:border-blue-500 block w-80 p-2.5`
 
-const UpdateMovie = ( {handleUpdateModal} ) => {
+const UpdateMovie = ( {id, handleUpdateModal, updateModal} ) => {
 
 	const [movie, setMovie] = useState('');
-	const { id } = useParams;
 	const navigate = useNavigate();
 
 	useEffect( () => {
@@ -32,17 +31,18 @@ const UpdateMovie = ( {handleUpdateModal} ) => {
 			.get(`${import.meta.env.VITE_SERVER_BASE_URL}/api/moviesdb/${id}`)
 			.then(res => setMovie(res.data))
 			.catch(e => console.log(e.message));
-	}, []);
+	}, [id]);
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		axios
 			.put(`${import.meta.env.VITE_SERVER_BASE_URL}/api/moviesdb/${id}`, movie)
 			.then(res => {
-				console.log(res.data);
-				navigate('/movies/:id')
+				//console.log(res.data);
+				handleUpdateModal(!updateModal);
+				navigate(`/movies/${id}`)
 			})
-			.catch(e=> console.log(e));
+			.catch(e => console.log(e));
 	}
 
 	const handleChange = e => {
@@ -62,7 +62,7 @@ return (
 			<input 
 				type="text"
 				name="image"
-				value={movie.poster || ''}
+				value={movie?.poster}
 				placeholder="image link"
 				onChange={handleChange}
 				className={inputClass}
@@ -71,7 +71,7 @@ return (
 				type="text" 
 				name="title" 
 				placeholder="title"
-				value={movie.title || ''}
+				value={movie?.title}
 				required
 				onChange={handleChange}
 				className={inputClass}
@@ -80,7 +80,7 @@ return (
 				type="text" 
 				name="director" 
 				placeholder="director"
-				value={movie.director || ' '}
+				value={movie?.director}
 				onChange={handleChange}
 				className={inputClass}
 			></input>
@@ -88,7 +88,7 @@ return (
 				type="number" 
 				name="year" 
 				placeholder="year"
-				value={movie.year || ' '}
+				value={movie?.year}
 				onChange={handleChange}
 				className={inputClass}
 			></input>
@@ -96,7 +96,7 @@ return (
 				type="number" 
 				name="rating" 
 				placeholder="imdb rating"
-				value={movie.rating || ' '}
+				value={movie?.rating}
 				onChange={handleChange}
 				className={inputClass}
 			></input>
@@ -104,15 +104,15 @@ return (
 				type="text" 
 				name="description" 
 				placeholder="description"
-				value={movie.description || ' '}
+				value={movie?.description}
 				required
 				onChange={handleChange}
 				className={inputClass}
 			></input>
-			<button type="submit" className={btnUpdate}>
+			<button className={btnUpdate}>
 				Update the Movie
 			</button>
-			<button type="button"  onClick={handleUpdateModal} className={btnCancel}>
+			<button  onClick={handleUpdateModal} className={btnCancel}>
 				Cancel
 			</button>
 		</form>

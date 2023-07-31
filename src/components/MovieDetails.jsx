@@ -37,10 +37,14 @@ const MovieDetails = () => {
 	const { id } = useParams();
 
 	useEffect( () => {
-		axios.get(`${import.meta.env.VITE_SERVER_BASE_URL}/api/moviesdb/${id}`)
-		.then(res => setMovie(res.data))
-		.catch(e => setError(e.response?.data?.message));
-	}, [id]);
+		//console.log(!updateModal);
+		if (!updateModal){
+			axios.get(`${import.meta.env.VITE_SERVER_BASE_URL}/api/moviesdb/${id}`)
+			.then(res => setMovie(res.data))
+			.catch(e => setError(e.response?.data?.message));
+		}
+		
+	}, [id, updateModal]);
 
 	const posterURL = 'https://image.tmdb.org/t/p/original';
 
@@ -53,19 +57,25 @@ const MovieDetails = () => {
 			.catch(e => console.log(e));
 	};
 
+	
+
 	const handleToggleModal = () => {
 		setShowModal(!showModal);
 	};
 
 	const handleConfirmDelete = () =>{
-		setShowModal(false);
+		setShowModal(!showModal); // false
 		handleDelete();
 	}
+
+	useEffect( () => {
+
+	}, [showModal])
 
 	const handleUpdateModal = () => {
 		setUpdateModal(!updateModal);
 	}
-
+//console.log(updateModal);
 return (
 	<div className="flex justify-center bg-gray-200 w-full py-20 px-10">
 	{ error && <p style={{color:'red'}}>{error}</p>}
@@ -113,7 +123,7 @@ return (
 						<path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
 					</svg>
 					<h3 className="mb-5 text-lg font-normal text-gray-500">
-						Are you sure you want to delete this product?
+						Are you sure you want to delete this movie?
 					</h3>
 					<button type="button" onClick={handleConfirmDelete} 
 						className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300
@@ -122,7 +132,7 @@ return (
 					</button>
 					<button type="button"  onClick={handleToggleModal}
 						className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-nonefocus:ring-gray-200 
-						rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5hover:text-gray-900 focus:z-10 ">
+						rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 ">
 						No, cancel
 					</button>
 				</div>
@@ -131,7 +141,7 @@ return (
 
 		{ updateModal && (
 			<div className="fixed top-0 left-0 right-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50">
-			<UpdateMovie handleUpdateModal={handleUpdateModal}></UpdateMovie>
+			<UpdateMovie id={id} handleUpdateModal={handleUpdateModal} updateModal={updateModal}></UpdateMovie>
 			</div>
 		)}
 		</div>

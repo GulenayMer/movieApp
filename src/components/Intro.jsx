@@ -4,15 +4,15 @@ const Intro = () => {
 return (
 
 <section className="bg-center
-	bg-[url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')]
-	bg-purple-200 bg-blend-multiply">
-    <div className="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">
+	bg-[url('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1156&q=80')]
+	bg-amber-100 opacity-90 bg-cover">
+    <div className="px-4 mx-auto text-center py-24 lg:py-56">
+        <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none  md:text-3xl lg:text-5xl">
 			Discover the Best Movies
 		</h1>
-        <p className="mb-8 text-lg font-normal text-gray-100 lg:text-xl sm:px-16 lg:px-48">
+        <p className="mb-8 text-lg font-normal lg:text-xl sm:px-16 lg:px-80">
 			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias consequuntur dolorem vitae similique aliquam,
-			eaque magnam quam tenetur quasi cumque neque laudantium exercitationem? Fugit nesciunt sequi accusamus ipsam cumque blanditiis.
+			eaque magnam quam tenetur quasi cumque neque laudantium exercitationem?
 		</p>
         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
 		<button
@@ -28,8 +28,8 @@ return (
                 </svg>
             </button>
             <button className="inline-flex justify-center hover:text-gray-900 items-center 
-			py-3 px-5 text-base font-medium text-center text-white rounded-lg border
-			border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
+			py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border
+			border-gray-900 hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
                 Learn more
             </button>  
         </div>

@@ -6,25 +6,18 @@ import UpdateMovie from "./UpdateMovie"
 
 //
 const btnClass = `
-text-white 
-bg-gradient-to-r from-red-400 via-red-500 to-red-600 
-hover:bg-gradient-to-br 
-focus:ring-4 focus:outline-none focus:ring-red-300
-font-medium rounded-lg 
-text-sm px-5 py-2.5 
-text-center md:w-[20%]
-mx-3`
+focus:outline-none text-white bg-red-700 hover:bg-red-800 
+focus:ring-4 focus:ring-red-300 font-medium rounded-lg 
+text-sm px-5 py-2.5 mr-2 mb-2 
+md:w-[20%]
+`
 
 const btnClass2 = `
-text-gray-900 
-bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 
-hover:bg-gradient-to-br 
-focus:ring-4 
-focus:outline-none focus:ring-lime-300
-font-medium rounded-lg text-sm
-text-center md:w-[20%]
-px-5 py-2.5 
-mx-3`
+focus:outline-none text-white bg-purple-700 mr-4
+hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 
+font-medium rounded-lg text-sm px-5 py-2.5 mb-2
+md:w-[20%]
+`
 
 //
 
@@ -77,10 +70,11 @@ const MovieDetails = () => {
 	}
 //console.log(updateModal);
 return (
-	<div className="flex justify-center bg-gray-200 w-full py-20 px-10">
+	<div className="flex justify-center bg-amber-50 w-full py-20 px-10">
 	{ error && <p style={{color:'red'}}>{error}</p>}
 	{ movie && (
-	<div key={movie.id} className="flex flex-col items-center bg-slate-200 border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xxl hover:bg-slate-300">
+	<div key={movie.id} className="flex flex-col items-center bg-amber-50 border border-gray-200 rounded-lg shadow
+				md:flex-row md:max-w-xxl hover:bg-amber-100">
 		<img src={`${posterURL}${movie.poster}`} alt={movie.title} 
 			className='object-cover w-full rounded-t-lg h-100 md:h-auto md:w-60 md:rounded-none md:rounded-l-lg'
 		/>

@@ -43,7 +43,7 @@ const handleSubmit = (e) =>{
 
 
 return (
-	<div  className="flex flex-col justify-center bg-amber-800 items-center py-20">
+	<div  className="flex flex-col justify-center bg-gray-800 items-center py-20">
 		<h2 className="font-bold text-lg tracking-wide text-gray-100 uppercase">Add a New Movie</h2> 
 		<form onSubmit={handleSubmit} className="flex justify-center flex-col mt-4">
 		{/* 	<label htmlFor="image">Image Link</label> */}

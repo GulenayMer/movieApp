@@ -46,27 +46,4 @@ export default Movies
 
 
 
-{/* <div 
-className='flex flex-col justify-center items-center py-15 bg-gray-400'>
-	<ul className='flex justify-center items-center p-10'>
-		{movies.map((movie)=> (
-			<li key={movie.id} className='bg-gray-300 m-3 rounded-lg text-center max-w-[30%]'>
-				<Link to={`movies/${movie.id}`}>
-					<img src={movie.poster} className='w-full'></img>
-					<div className='py-3  bg-gray-100 px-4'>
-					<p className='text-sm font-medium p-1'>{movie.title}</p>
-					<p className='text-sm font-medium'>{movie.year}</p>
-					<p className='text-sm font-medium'>{movie.director}</p>
-					<p className='text-sm font-medium'>{movie.rating}</p>
-					</div>
-			
-				</Link>
-			</li>
-		))}
-	</ul>
-
-
-</div> */}
-
-
 

@@ -29,16 +29,16 @@ const Header = () => {
 		document.addEventListener('click', handleOutsideClick);
     // Clean up event listener when the component unmounts
     return () => {
-    	document.removeEventListener('click', handleOutsideClick);
+		document.removeEventListener('click', handleOutsideClick);
     };
 	}, [])
 
 return (
 	<>
-	<nav className="border-gray-200 bg-gray-100">
+	<nav className="border-gray-200 bg-amber-50">
 	<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
 		<a href="#" className="flex items-center">
-			<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">MovieTime</span>
+			<span className="self-center text-2xl text-gray-900 font-semibold whitespace-nowrap">MovieTime</span>
 		</a>
 		<button type="button" aria-expanded={hamburgerMenu}  onClick={handleHamburgerMenu} className={toggleBtn}>
 			<svg className="w-5 h-5 relative" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -48,7 +48,7 @@ return (
 		
 		{ !hamburgerMenu ? (
 		<div ref={menuRef} className="hidden w-full md:block md:w-auto">
-			<ul className="flex flex-col font-medium mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
+			<ul className="flex flex-col font-medium mt-4 text-gray-900 uppercase rounded-lg md:flex-row md:space-x-5 md:mt-0 md:border-0 ">
 			{[
 				['Home', '/'],
 				['Movies', '/movies'],
@@ -56,7 +56,7 @@ return (
 				['Contact', '/contact']
 			].map(([title, url]) => (
 				<li key={url} >
-					<a href="#" className="block hover:bg-gray-200 text-gray-700 md:p-1" 
+					<a href="#" className="block hover:bg-red-400  hover:rounded-lg md:p-1" 
 					aria-current="page"><NavLink to={url}>{title}</NavLink></a>
 				</li>	
 			))}
@@ -72,7 +72,7 @@ return (
 				['Contact', '/contact']
 			].map(([title, url]) => (
 				<li key={url} >
-					<a href="#" className="block py-3 pl-3 pr-4  ounded text-red-700 md:p-0" 
+					<a href="#" className="block py-3 pl-3 pr-4  rounded text-red-700  uppercase md:p-0" 
 					aria-current="page"><NavLink to={url}>{title}</NavLink></a>
 				</li>	
 			))}
@@ -82,7 +82,7 @@ return (
 	</div>
 	</nav>
 
-	<Intro></Intro>
+	
 	</>
 )
 }

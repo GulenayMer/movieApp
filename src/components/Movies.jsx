@@ -23,7 +23,7 @@ const Movies = () => {
 
 //console.log(movies);
 return (
-	<div className='flex justify-center flex-wrap bg-gray-900 py-10 text-center'>
+	<div className='flex justify-center flex-wrap bg-gradient-to-l from-slate-400 to-yellow-300  py-10 text-center'>
 	
 	{movies.map((movie)=> (
 		<Card key={movie.id} className="w-80 p-1 m-3 bg-slate-200 border border-gray-900 rounded-lg shadow">

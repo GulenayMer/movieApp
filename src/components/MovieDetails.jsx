@@ -70,11 +70,11 @@ const MovieDetails = () => {
 	}
 //console.log(updateModal);
 return (
-	<div className="flex justify-center bg-amber-50 w-full py-20 px-10">
+	<div className="flex justify-center bg-gradient-to-l from-slate-400 to-yellow-300  w-full h-[100vh] py-20 px-10">
 	{ error && <p style={{color:'red'}}>{error}</p>}
 	{ movie && (
-	<div key={movie.id} className="flex flex-col items-center bg-amber-50 border border-gray-200 rounded-lg shadow
-				md:flex-row md:max-w-xxl hover:bg-amber-100">
+	<div key={movie.id} className="flex flex-col items-center bg-gray-50 border border-gray-200 rounded-lg shadow
+			px-20	md:flex-row w-[80%] hover:bg-gray-100">
 		<img src={`${posterURL}${movie.poster}`} alt={movie.title} 
 			className='object-cover w-full rounded-t-lg h-100 md:h-auto md:w-60 md:rounded-none md:rounded-l-lg'
 		/>

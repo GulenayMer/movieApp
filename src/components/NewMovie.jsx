@@ -31,6 +31,7 @@ const handleSubmit = (e) =>{
 	e.preventDefault();
 	const imgUrl = poster ? `https://image.tmdb.org/t/p/original/${poster}` : "";
 //1E5baAaEse26fej7uHcjOgEE2t2.jpg
+console.log({title, director, year, rating, poster: imgUrl, description});
 	axios
 	.post(`${import.meta.env.VITE_SERVER_BASE_URL}/api/moviesdb`, {title, director, year, rating, poster: imgUrl, description})
 	.then(res => {
@@ -46,16 +47,15 @@ return (
 	<div  className="flex flex-col justify-center bg-gray-800 items-center py-20">
 		<h2 className="font-bold text-lg tracking-wide text-gray-100 uppercase">Add a New Movie</h2> 
 		<form onSubmit={handleSubmit} className="flex justify-center flex-col mt-4">
-		{/* 	<label htmlFor="image">Image Link</label> */}
 			<input 
 				type="text"
 				name="image"
 				value={poster}
+				required
 				placeholder="image link"
 				onChange={e => setPoster(e.target.value)}
 				className={inputClass}
 			></input>
-		{/* 	<label htmlFor="title">Title</label> */}
 			<input 
 				type="text" 
 				name="title" 
@@ -65,30 +65,30 @@ return (
 				onChange={e => setTitle(e.target.value)}
 				className={inputClass}
 			></input>
-{/* 			<label htmlFor="director">Director</label>
- */}			<input 
+			<input 
 				type="text" 
 				name="director" 
 				placeholder="director"
 				value={director}
+				required
 				onChange={e => setDirector(e.target.value)}
 				className={inputClass}
 			></input>
-			{/* <label htmlFor="year">Year</label> */}
 			<input 
-				type="number" 
+				type="date" 
 				name="year" 
 				placeholder="year"
 				value={year}
+				required
 				onChange={e => setYear(e.target.value)}
 				className={inputClass}
 			></input>
-			{/* <label htmlFor="rating">Rating</label> */}
 			<input 
 				type="number" 
 				name="rating" 
 				placeholder="imdb rating"
 				value={rating}
+				required
 				onChange={e => setRating(e.target.value)}
 				className={inputClass}
 			></input>

@@ -44,7 +44,7 @@ const handleSubmit = (e) =>{
 
 
 return (
-	<div  className="flex flex-col justify-center bg-gradient-to-l from-slate-400 to-yellow-300 items-center py-20">
+	<div  className="flex flex-col justify-center bg-gradient-to-l from-slate-400 to-yellow-300 items-center h-[100vh] py-20">
 		<h2 className="font-bold text-lg tracking-wide text-gray-800 uppercase">Add a New Movie</h2> 
 		<form onSubmit={handleSubmit} className="flex justify-center flex-col mt-4">
 			<input 

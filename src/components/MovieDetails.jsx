@@ -9,14 +9,12 @@ const btnClass = `
 focus:outline-none text-white bg-red-700 hover:bg-red-800 
 focus:ring-4 focus:ring-red-300 font-medium rounded-lg 
 text-sm px-5 py-2.5 mr-2 mb-2 
-md:w-[20%]
 `
 
 const btnClass2 = `
 focus:outline-none text-white bg-purple-700 mr-4
 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 
 font-medium rounded-lg text-sm px-5 py-2.5 mb-2
-md:w-[20%]
 `
 
 //
@@ -70,11 +68,11 @@ const MovieDetails = () => {
 	}
 //console.log(updateModal);
 return (
-	<div className="flex justify-center bg-gradient-to-l from-slate-400 to-yellow-300  w-full h-[100vh] py-20 px-10">
+	<div className="flex justify-center bg-gradient-to-l from-slate-400 to-yellow-300  w-full md:h-[100vh] py-20 px-10">
 	{ error && <p style={{color:'red'}}>{error}</p>}
 	{ movie && (
-	<div key={movie.id} className="flex flex-col items-center bg-gray-50 border border-gray-200 rounded-lg shadow
-			px-20	md:flex-row w-[80%] hover:bg-gray-100">
+	<div key={movie.id} className="flex flex-col items-center bg-gray-50/80 border border-gray-200 rounded-lg shadow
+			px-20 md:flex-row w-[80%]   hover:bg-gray-100">
 		<img src={`${posterURL}${movie.poster}`} alt={movie.title} 
 			className='object-cover w-full rounded-t-lg h-100 md:h-auto md:w-60 md:rounded-none md:rounded-l-lg'
 		/>
@@ -113,7 +111,7 @@ return (
 					<span className="sr-only">Close modal</span>
 				</button>
 				<div className="p-6 text-center">
-					<svg className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+					<svg className="mx-auto mb-4 text-gray-400 w-12 h-12" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
 						<path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
 					</svg>
 					<h3 className="mb-5 text-lg font-normal text-gray-500">

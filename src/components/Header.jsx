@@ -51,15 +51,18 @@ return (
 		
 		{ !hamburgerMenu ? (
 		<div className="hidden w-full md:block md:w-auto">
-			<ul className="flex flex-col font-medium mt-4 text-gray-900 uppercase rounded-lg md:flex-row md:space-x-5 md:mt-0 md:border-0 ">
+			<ul className="flex flex-col font-bold mt-4 text-gray-800 
+			uppercase rounded-lg md:flex-row md:space-x-5 md:mt-0 md:border-0 ">
 			{[
 				['Home', '/'],
 				['Movies', '/movies'],
+				['Genres', '/genres'],
 				['Add Movie', 'movies/new'],
-				['Contact', '/contact']
+				['Contact', '/contact'],
 			].map(([title, url]) => (
 				<li key={url} >
-					<a href="#" className="block hover:bg-gray-100  hover:rounded-lg md:p-1" 
+					<a href="#" className="block transition ease-in-out delay-120 hover:-translate-x-1 hover:scale-110
+					hover:bg-indigo-200 rounded-xl duration-300 md:p-1" 
 					aria-current="page"><NavLink to={url}>{title}</NavLink></a>
 				</li>	
 			))}
@@ -67,15 +70,16 @@ return (
 		</div>
 		) : (
 			<div className="absolute z-50 top-16 right-0 px-4 w-60 text-center list-none divide-y divide-gray-100 rounded-lg shadow">
-			<ul className="flex flex-col font-medium  rounded-lg bg-gray-50">
+			<ul className="flex flex-col font-medium rounded-lg bg-gray-50">
 			{[
 				['Home', '/'],
 				['Movies', '/movies'],
+				['Genres', '/genres'],
 				['Add Movie', 'movies/new'],
 				['Contact', '/contact']
 			].map(([title, url]) => (
 				<li key={url} >
-					<a href="#" className="block py-3 pl-3 pr-4  rounded text-red-700  uppercase md:p-0" 
+					<a href="#" className="block py-3 pl-3 pr-4  rounded text-red-700 uppercase md:p-0" 
 					aria-current="page"><NavLink to={url}>{title}</NavLink></a>
 				</li>	
 			))}

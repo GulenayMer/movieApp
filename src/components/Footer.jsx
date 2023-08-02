@@ -1,7 +1,7 @@
 
 const Footer = () => {
 return (
-<footer className="bg-gray-900 rounded-sm shadow absolute first-letter:bottom-0 left-0 right-0">
+<footer className="bg-gray-800 rounded-sm shadow absolute first-letter:bottom-0 left-0 right-0">
 	<div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
 		<span className="text-sm text-gray-200 sm:text-center">© 2023 
 			<a href="#" className="hover:underline">MG™</a>. All Rights Reserved.

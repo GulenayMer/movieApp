@@ -23,21 +23,22 @@ const Movies = () => {
 
 //console.log(movies);
 return (
-	<div className='flex justify-center flex-wrap bg-gradient-to-l from-slate-400 to-yellow-300  py-10 text-center'>
-	
-	{movies.map((movie)=> (
-		<Card key={movie.id} className="w-80 p-1 m-3 bg-slate-200 border border-gray-900 rounded-lg shadow">
-			<Link to={`/movies/${movie.id}`}>
-			<img src={`${posterURL}${movie.poster}`} alt={movie.title} className='w-full'></img>
-				<h5 className="text-md font-bold tracking-tight text-gray-900 dark:text-white mt-3">
-					{movie.title}
-				</h5>
-				<p className="font-normal text-gray-700 dark:text-gray-400"> {formatYear(movie.year)}</p>
-			</Link>
-		</Card>
-	))}
-
-
+	<div className='flex justify-center flex-wrap bg-gradient-to-l from-slate-400 to-yellow-300 p-20 text-center'>
+		<h2 className="text-xl font-bold uppercase mt-10 mb-6">Popular Movies in 2023</h2>
+		<div className='flex justify-center flex-wrap'>
+		{movies.map((movie)=> (
+			<Card key={movie.id} className="w-80 p-2 m-3 bg-slate-200 rounded-lg shadow
+					transition ease-in-out delay-120 hover:-translate-x-1 hover:scale-110">
+				<Link to={`/movies/${movie.id}`}>
+				<img src={`${posterURL}${movie.poster}`} alt={movie.title} className='w-full'></img>
+					<h5 className="text-md font-bold tracking-tight text-gray-900 mt-3">
+						{movie.title}
+					</h5>
+					<p className="font-normal text-gray-700"> {formatYear(movie.year)}</p>
+				</Link>
+			</Card>
+		))}
+		</div>
 	</div>
 )
 }

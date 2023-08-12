@@ -1,7 +1,6 @@
 import axios  from 'axios'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Card } from 'flowbite-react';
 import { formatYear } from '../utils/utils'
 
 /*
@@ -25,18 +24,18 @@ const Movies = () => {
 return (
 	<div className='flex justify-center flex-wrap bg-gradient-to-l from-slate-400 to-yellow-300 p-20 text-center'>
 		<h2 className="text-xl font-bold uppercase mt-10 mb-6">Popular Movies in 2023</h2>
-		<div className='flex justify-center flex-wrap'>
+		<div className='grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4'>
 		{movies.map((movie)=> (
-			<Card key={movie.id} className="w-80 p-2 m-3 bg-slate-200 rounded-lg shadow
-					transition ease-in-out delay-120 hover:-translate-x-1 hover:scale-110">
+			<div key={movie.id} className="flex flex-col justify-center items-center">
 				<Link to={`/movies/${movie.id}`}>
-				<img src={`${posterURL}${movie.poster}`} alt={movie.title} className='w-full'></img>
+					<img src={`${posterURL}${movie.poster}`} alt={movie.title} width={200} height={200}
+					className="rounded-t-md mb-3 shadow transition ease-in-out delay-120 hover:-translate-x-1 hover:scale-110" />
 					<h5 className="text-md font-bold tracking-tight text-gray-900 mt-3">
 						{movie.title}
 					</h5>
 					<p className="font-normal text-gray-700"> {formatYear(movie.year)}</p>
 				</Link>
-			</Card>
+			</div>
 		))}
 		</div>
 	</div>

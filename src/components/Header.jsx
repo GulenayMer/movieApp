@@ -38,7 +38,7 @@ const Header = () => {
 
 return (
 	<>
-	<nav className="border-gray-300 bg-gradient-to-l from-slate-400 to-yellow-300">
+	<nav className="border-gray-300 bg-gray-50">
 	<div ref={menuRef} className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative">
 		<a href="#" className="flex items-center">
 			<span className="self-center text-2xl text-gray-900 font-semibold whitespace-nowrap">MovieTime</span>
@@ -61,9 +61,9 @@ return (
 				['Contact', '/contact'],
 			].map(([title, url]) => (
 				<li key={url} >
-					<a href="#" className="block transition ease-in-out delay-120 hover:-translate-x-1 hover:scale-110
+					<button className="block transition ease-in-out delay-120 hover:-translate-x-1 hover:scale-110
 					hover:bg-indigo-200 rounded-xl duration-300 md:p-1" 
-					aria-current="page"><NavLink to={url}>{title}</NavLink></a>
+					aria-current="page"><NavLink to={url}>{title}</NavLink></button>
 				</li>	
 			))}
 			</ul>
@@ -79,8 +79,8 @@ return (
 				['Contact', '/contact']
 			].map(([title, url]) => (
 				<li key={url} >
-					<a href="#" className="block py-3 pl-3 pr-4  rounded text-red-700 uppercase md:p-0" 
-					aria-current="page"><NavLink to={url}>{title}</NavLink></a>
+					<button  className="block py-3 pl-3 pr-4  rounded text-red-700 uppercase md:p-0" 
+					aria-current="page"><NavLink to={url}>{title}</NavLink></button>
 				</li>	
 			))}
 			</ul>

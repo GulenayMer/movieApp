@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import { Card } from 'flowbite-react';
-import { formatYear } from '../utils/utils'
 
 const Genres = () => {
 	const [genres, setGenres] = useState([]);
